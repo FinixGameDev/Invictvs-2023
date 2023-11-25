@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vgygr"]
 [ext_resource type="AudioStream" uid="uid://v7bi2e1ka7qd" path="res://art/ost mp3/01loop.mp3" id="2_6omag"]
 [ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="3_nlw62"]
-[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="4_avbn5"]
 [ext_resource type="Texture2D" uid="uid://dnuhqg0lqwltt" path="res://art/imagens finais/1-despertador.png" id="5_4nshm"]
 [ext_resource type="Texture2D" uid="uid://b86m23uhf121b" path="res://art/imagens finais/1-mao2.png" id="6_1p0ng"]
 [ext_resource type="Script" path="res://scripts/hand_sway.gd" id="7_oy6p4"]
@@ -15,8 +14,12 @@ _data = {
 "1-mao": ExtResource("8_rxv0l")
 }
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_pqpw0"]
+file = "1-fundoHD.ogg"
+
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_vgygr")
+handanim = "1-mao"
 
 [node name="IntroSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_ap0h2")
@@ -25,10 +28,6 @@ autoplay = true
 [node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_6omag")
 script = ExtResource("3_nlw62")
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("4_avbn5")
 
 [node name="Despertador" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -47,6 +46,12 @@ libraries = {
 [node name="Timer" type="Timer" parent="Hand"]
 wait_time = 0.3
 autostart = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1926.0
+offset_bottom = 1088.0
+stream = SubResource("VideoStreamTheora_pqpw0")
+autoplay = true
 
 [connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

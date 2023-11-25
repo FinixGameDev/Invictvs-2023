@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bcurxmcaac34g"]
+[gd_scene load_steps=31 format=3 uid="uid://bcurxmcaac34g"]
 
 [ext_resource type="Script" path="res://scripts/game_panel.gd" id="1_ithmw"]
 [ext_resource type="PackedScene" uid="uid://dp4jbk4quxcti" path="res://minigame.tscn" id="2_3p1a6"]
@@ -28,15 +28,6 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_qwpfc"]
 font_size = 50
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="InputEventKey" id="InputEventKey_pmpb7"]
-device = -1
-pressed = true
-keycode = 48
-unicode = 48
-
-[sub_resource type="Shortcut" id="Shortcut_7myvk"]
-events = [SubResource("InputEventKey_pmpb7")]
 
 [sub_resource type="InputEventKey" id="InputEventKey_s52pp"]
 device = -1
@@ -176,7 +167,7 @@ layout_mode = 0
 offset_top = 7.0
 offset_right = 1921.0
 offset_bottom = 1084.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade-in"]
 autoplay = "fade_in"
@@ -213,7 +204,6 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 103.0
 offset_bottom = 82.0
-shortcut = SubResource("Shortcut_7myvk")
 
 [node name="ColorRect1" type="ColorRect" parent="."]
 layout_mode = 0

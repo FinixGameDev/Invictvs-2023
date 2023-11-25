@@ -1,0 +1,204 @@
+[gd_scene load_steps=55 format=3 uid="uid://b8co1k2ukm2v4"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_o888y"]
+[ext_resource type="AudioStream" uid="uid://8fyy2ld3ml4p" path="res://art/ost mp3/12loop.mp3" id="2_0p4y8"]
+[ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_yp5v1"]
+[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_s1f8t"]
+[ext_resource type="Texture2D" uid="uid://bkl21eavbx3ai" path="res://art/imagens finais/3-mao1.png" id="6_kni6t"]
+[ext_resource type="Script" path="res://scripts/hand_sway.gd" id="7_ot2fw"]
+[ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="8_2sy7w"]
+[ext_resource type="Texture2D" uid="uid://ct0y5vktmi546" path="res://art/imagens finais/10-mao1.png" id="9_1u5mh"]
+[ext_resource type="Texture2D" uid="uid://g0iwiv8ofm5r" path="res://art/imagens finais/10-mao2.png" id="10_2i0ep"]
+[ext_resource type="Texture2D" uid="uid://cuitahdc15ean" path="res://art/imagens finais/4-mao1.png" id="11_xvkrc"]
+[ext_resource type="Texture2D" uid="uid://o3ytj2h434mb" path="res://art/imagens finais/4-mao2.png" id="12_87eio"]
+[ext_resource type="Texture2D" uid="uid://c6l7v4o0j745g" path="res://art/imagens finais/5-mao1.png" id="13_g832r"]
+[ext_resource type="Texture2D" uid="uid://d3g3nuhjdsggb" path="res://art/imagens finais/5-mao2.png" id="14_3e01l"]
+[ext_resource type="Texture2D" uid="uid://cv728ukjeydqv" path="res://art/imagens finais/7-mao1.png" id="15_4ieis"]
+[ext_resource type="Texture2D" uid="uid://bw07ftmg662jw" path="res://art/imagens finais/7-mao2.png" id="16_bipi6"]
+[ext_resource type="Texture2D" uid="uid://dwyibe3cv04cs" path="res://art/imagens finais/7-mao3.png" id="17_64lov"]
+[ext_resource type="Texture2D" uid="uid://s1bukuwvryxk" path="res://art/imagens finais/8-mao1.png" id="18_o2ffn"]
+[ext_resource type="Texture2D" uid="uid://bec2macwcneqm" path="res://art/imagens finais/8-mao2.png" id="19_754ue"]
+[ext_resource type="Texture2D" uid="uid://s81306tvx3dj" path="res://art/imagens finais/8-mao3.png" id="20_4yxkm"]
+[ext_resource type="Texture2D" uid="uid://b4pqoyygf0b3n" path="res://art/imagens finais/8-mao4.png" id="21_125u7"]
+[ext_resource type="Texture2D" uid="uid://d2y4qiyoat4pk" path="res://art/imagens finais/8-mao5.png" id="22_4qvw0"]
+[ext_resource type="Texture2D" uid="uid://gxq217mi5c8m" path="res://art/imagens finais/8-mao6.png" id="23_6wy2s"]
+[ext_resource type="Texture2D" uid="uid://tp3rqkxai738" path="res://art/imagens finais/8-mao7.png" id="24_jjfop"]
+[ext_resource type="Texture2D" uid="uid://dak5u2wyjyrei" path="res://art/imagens finais/8-mao8.png" id="25_0p3v6"]
+[ext_resource type="Texture2D" uid="uid://jkybu3sd3th6" path="res://art/imagens finais/8-mao9.png" id="26_1cscw"]
+[ext_resource type="Texture2D" uid="uid://33fhgxgksyrk" path="res://art/imagens finais/8-mao10.png" id="27_nbyqm"]
+[ext_resource type="Texture2D" uid="uid://dxiaoivsf4m34" path="res://art/imagens finais/8-mao11.png" id="28_l2xe1"]
+[ext_resource type="Texture2D" uid="uid://488grq1srnqj" path="res://art/imagens finais/8-mao12.png" id="29_j78xy"]
+[ext_resource type="Texture2D" uid="uid://csmopgbo4jfmn" path="res://art/imagens finais/8-mao13.png" id="30_5p1pi"]
+[ext_resource type="Texture2D" uid="uid://db1occ6h2pgtg" path="res://art/imagens finais/8-mao14.png" id="31_bkt3t"]
+[ext_resource type="Texture2D" uid="uid://82n01wq2vx37" path="res://art/imagens finais/8-mao15.png" id="32_t1jrf"]
+[ext_resource type="Texture2D" uid="uid://cu2ds1gqyrmd7" path="res://art/imagens finais/8-mao16.png" id="33_a642a"]
+[ext_resource type="Texture2D" uid="uid://cusne3ca5h3he" path="res://art/imagens finais/8-mao17.png" id="34_f2wnm"]
+[ext_resource type="Texture2D" uid="uid://cepcn4rqctip8" path="res://art/imagens finais/8-mao18.png" id="35_kirpm"]
+[ext_resource type="Texture2D" uid="uid://bx621hmy5i7ne" path="res://art/imagens finais/8-mao19.png" id="36_lm3st"]
+[ext_resource type="Texture2D" uid="uid://cc4nc8wdfcmtd" path="res://art/imagens finais/8-mao20.png" id="37_rfq3e"]
+[ext_resource type="Texture2D" uid="uid://bl18iwvem1cl5" path="res://art/imagens finais/8-mao21.png" id="38_cpfgi"]
+[ext_resource type="Texture2D" uid="uid://gcpr4otvwv3m" path="res://art/imagens finais/8-mao22.png" id="39_xljmc"]
+[ext_resource type="Texture2D" uid="uid://dna0vgxr3mavn" path="res://art/imagens finais/8-mao23.png" id="40_qv8ih"]
+[ext_resource type="Texture2D" uid="uid://bkfwv7rd3u8f2" path="res://art/imagens finais/8-mao24.png" id="41_bjpln"]
+[ext_resource type="Texture2D" uid="uid://hccmokhk5fy3" path="res://art/imagens finais/8-mao25.png" id="42_xwdmb"]
+[ext_resource type="Texture2D" uid="uid://bv7puxfo8x7a2" path="res://art/imagens finais/8-mao26.png" id="43_4iwt0"]
+[ext_resource type="Texture2D" uid="uid://byrf25x3acycf" path="res://art/imagens finais/9-mao1.png" id="44_m560w"]
+[ext_resource type="Texture2D" uid="uid://dyp7fr54qfcg5" path="res://art/imagens finais/9-mao2.png" id="45_6bd1a"]
+[ext_resource type="Texture2D" uid="uid://do7o4e6id64fj" path="res://art/imagens finais/3-mao2.png" id="46_3kelu"]
+
+[sub_resource type="Animation" id="Animation_xc4sh"]
+resource_name = "10-mao"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_1u5mh"), ExtResource("10_2i0ep"), ExtResource("9_1u5mh")]
+}
+
+[sub_resource type="Animation" id="Animation_hwtdh"]
+resource_name = "12-mao"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_kni6t"), ExtResource("46_3kelu"), ExtResource("6_kni6t")]
+}
+
+[sub_resource type="Animation" id="Animation_iyan7"]
+resource_name = "4-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_xvkrc"), ExtResource("12_87eio"), ExtResource("11_xvkrc")]
+}
+
+[sub_resource type="Animation" id="Animation_yhyci"]
+resource_name = "5-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_g832r"), ExtResource("14_3e01l"), ExtResource("13_g832r")]
+}
+
+[sub_resource type="Animation" id="Animation_uunym"]
+resource_name = "7-mao"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_4ieis"), ExtResource("16_bipi6"), ExtResource("17_64lov"), ExtResource("15_4ieis")]
+}
+
+[sub_resource type="Animation" id="Animation_wbree"]
+resource_name = "8-mao"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_o2ffn"), ExtResource("19_754ue"), ExtResource("20_4yxkm"), ExtResource("21_125u7"), ExtResource("22_4qvw0"), ExtResource("23_6wy2s"), ExtResource("24_jjfop"), ExtResource("25_0p3v6"), ExtResource("26_1cscw"), ExtResource("27_nbyqm"), ExtResource("28_l2xe1"), ExtResource("18_o2ffn"), ExtResource("29_j78xy"), ExtResource("30_5p1pi"), ExtResource("31_bkt3t"), ExtResource("32_t1jrf"), ExtResource("33_a642a"), ExtResource("34_f2wnm"), ExtResource("35_kirpm"), ExtResource("36_lm3st"), ExtResource("37_rfq3e"), ExtResource("38_cpfgi"), ExtResource("39_xljmc"), ExtResource("40_qv8ih"), ExtResource("41_bjpln"), ExtResource("42_xwdmb"), ExtResource("43_4iwt0")]
+}
+
+[sub_resource type="Animation" id="Animation_nsxtd"]
+resource_name = "9-mao"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_m560w"), ExtResource("45_6bd1a"), ExtResource("44_m560w")]
+}
+
+[sub_resource type="Animation" id="Animation_ikbql"]
+resource_name = "senhora"
+length = 1.1
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
+_data = {
+"1-mao": ExtResource("8_2sy7w"),
+"10-mao": SubResource("Animation_xc4sh"),
+"12-mao": SubResource("Animation_hwtdh"),
+"4-mao": SubResource("Animation_iyan7"),
+"5-mao": SubResource("Animation_yhyci"),
+"7-mao": SubResource("Animation_uunym"),
+"8-mao": SubResource("Animation_wbree"),
+"9-mao": SubResource("Animation_nsxtd"),
+"senhora": SubResource("Animation_ikbql")
+}
+
+[node name="Level 12" type="Node2D"]
+script = ExtResource("1_o888y")
+handanim = "12-mao"
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0p4y8")
+script = ExtResource("4_yp5v1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_s1f8t")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(1357, 613)
+texture = ExtResource("6_kni6t")
+script = ExtResource("7_ot2fw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_esp12")
+}
+
+[node name="Timer" type="Timer" parent="Hand"]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

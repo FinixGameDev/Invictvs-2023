@@ -49,7 +49,7 @@ func _on_lost():
 func _on_win():
 	end_game()
 	level += 1
-	if level > 13:
+	if level > 15:
 		level = 1
 		#print win screen
 

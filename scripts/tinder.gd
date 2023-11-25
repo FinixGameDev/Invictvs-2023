@@ -1,7 +1,5 @@
-extends Sprite2D
+class_name tinder extends Sprite2D
 
-
-@export var images = []
 
 func switch():
-	self.texture = images[randi() % images.count]
+	self.texture = load("res://art/imagens finais/6-tinder" + str(randi() % 5 + 1) + ".png")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cilfmvp3nu6k2"
+path="res://.godot/imported/11-fundo_apo8_prob3.ogg-1d08f694f1c6ec96637f6831eb3eeaac.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/fundos ogg/11-fundo_apo8_prob3.ogg"
+dest_files=["res://.godot/imported/11-fundo_apo8_prob3.ogg-1d08f694f1c6ec96637f6831eb3eeaac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

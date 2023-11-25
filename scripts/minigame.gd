@@ -33,7 +33,7 @@ func _process(delta):
 	meter = clamp(meter - meter_decrease * delta, 0, 100)
 	emit_signal("meter_changed", meter)
 	$Label.text = str(int($Timer.time_left * (13 / $Timer.wait_time)))
-	if (current > 13):
+	if (current >= 13):
 		$Timer.stop()
 		emit_signal("win")
 		set_process(false)
