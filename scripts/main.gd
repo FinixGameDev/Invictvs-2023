@@ -1,6 +1,6 @@
-extends Spatial
+extends Node
 
-export var lives = 13
+@export var lives = 13
 
 # Declare member variables here. Examples:
 # var a = 2

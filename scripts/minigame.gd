@@ -11,8 +11,8 @@ var current = 0
 var meter = 0
 var combo = 0
 
-export var meter_decrease = 10
-export var combo_multiplier = 10
+@export var meter_decrease = 10
+@export var combo_multiplier = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,9 @@ func _ready():
 func _process(delta):
 	meter = clamp(meter - meter_decrease * delta, 0, 100)
 	emit_signal("meter_changed", meter)
+	$Label.text = str(int($Timer.time_left))
 	if (meter >= 100):
+		$Timer.stop()
 		emit_signal("win")
 		set_process(false)
 
@@ -59,6 +61,6 @@ func _init_Solution():
 	for i in 13:
 		var index = randi() % (13 - i)
 		solution[str(i)] = values[index]
-		values.remove(index)
+		values.remove_at(index)
 		
 	print(str(solution))
