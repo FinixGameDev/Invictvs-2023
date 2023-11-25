@@ -2,7 +2,7 @@ extends Node
 
 @export var websocket_url = "192.168.220.109"
 
-var _client = WebSocketClient.new()
+var _client = WebSocketPeer.new()
 
 
 # Called when the node enters the scene tree for the first time.

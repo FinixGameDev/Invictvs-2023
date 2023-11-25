@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=3 uid="uid://f2csxxogn2gt"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_8w2sh"]
+[ext_resource type="AudioStream" uid="uid://clrduydcu2e2e" path="res://art/ost mp3/02loop.mp3" id="3_e5tu0"]
+[ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_2e6su"]
+[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_w02qm"]
+[ext_resource type="Texture2D" uid="uid://g612k6jkiyn" path="res://art/imagens finais/2-mao1.png" id="7_tr237"]
+[ext_resource type="Script" path="res://scripts/hand_sway.gd" id="8_3a5x0"]
+[ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="9_tluf1"]
+[ext_resource type="Texture2D" uid="uid://m70pfrf62avj" path="res://art/imagens finais/2-mao2.png" id="10_phkvd"]
+[ext_resource type="Texture2D" uid="uid://drjmfhupk66b6" path="res://art/imagens finais/2-maoestatica.png" id="11_ofb4c"]
+[ext_resource type="Texture2D" uid="uid://d3ex2m3ysyx55" path="res://art/imagens finais/2-faisca1.png" id="11_x2vlb"]
+[ext_resource type="Texture2D" uid="uid://cviah7vpaob8h" path="res://art/imagens finais/2-faisca2.png" id="12_4g57h"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_4pfg5"]
+
+[sub_resource type="Animation" id="Animation_pd4s1"]
+resource_name = "2-mao"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_tr237"), ExtResource("10_phkvd"), ExtResource("7_tr237")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spark:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("11_x2vlb"), ExtResource("12_4g57h"), SubResource("ImageTexture_4pfg5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
+_data = {
+"1-mao": ExtResource("9_tluf1"),
+"2-mao": SubResource("Animation_pd4s1")
+}
+
+[node name="Level 2" type="Node2D"]
+script = ExtResource("1_8w2sh")
+handanim = "2-mao"
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e5tu0")
+autoplay = true
+script = ExtResource("4_2e6su")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_w02qm")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(962, 547)
+texture = ExtResource("7_tr237")
+script = ExtResource("8_3a5x0")
+
+[node name="Spark" type="Sprite2D" parent="Hand"]
+texture = SubResource("ImageTexture_4pfg5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_esp12")
+}
+
+[node name="Timer" type="Timer" parent="Hand"]
+wait_time = 0.3
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+texture = ExtResource("11_ofb4c")
+
+[connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

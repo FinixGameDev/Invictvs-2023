@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://d1sngnw8u3av5"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_lsc5g"]
+[ext_resource type="AudioStream" uid="uid://dfm18avs6vml7" path="res://art/ost mp3/05intro.mp3" id="2_qqa6o"]
+[ext_resource type="AudioStream" uid="uid://dufr01tq36iey" path="res://art/ost mp3/05loop.mp3" id="3_lfymo"]
+[ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_uhycf"]
+[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_f7cet"]
+[ext_resource type="Texture2D" uid="uid://ct40p4cg2u4sa" path="res://art/imagens finais/5-raspadinha.png" id="6_5x6q4"]
+[ext_resource type="Texture2D" uid="uid://cuitahdc15ean" path="res://art/imagens finais/4-mao1.png" id="7_bmctx"]
+[ext_resource type="Texture2D" uid="uid://c6l7v4o0j745g" path="res://art/imagens finais/5-mao1.png" id="7_lwusw"]
+[ext_resource type="Script" path="res://scripts/hand_sway.gd" id="8_h1js1"]
+[ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="9_51ku5"]
+[ext_resource type="Texture2D" uid="uid://o3ytj2h434mb" path="res://art/imagens finais/4-mao2.png" id="10_vocpd"]
+[ext_resource type="Texture2D" uid="uid://d3g3nuhjdsggb" path="res://art/imagens finais/5-mao2.png" id="12_l1h2a"]
+
+[sub_resource type="Animation" id="Animation_iyan7"]
+resource_name = "4-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_bmctx"), ExtResource("10_vocpd"), ExtResource("7_bmctx")]
+}
+
+[sub_resource type="Animation" id="Animation_yhyci"]
+resource_name = "5-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_lwusw"), ExtResource("12_l1h2a"), ExtResource("7_lwusw")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
+_data = {
+"1-mao": ExtResource("9_51ku5"),
+"4-mao": SubResource("Animation_iyan7"),
+"5-mao": SubResource("Animation_yhyci")
+}
+
+[node name="Level 5" type="Node2D"]
+script = ExtResource("1_lsc5g")
+handanim = "5-mao"
+
+[node name="IntroSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qqa6o")
+autoplay = true
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lfymo")
+script = ExtResource("4_uhycf")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_f7cet")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(921, 598)
+texture = ExtResource("6_5x6q4")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(967, 617)
+texture = ExtResource("7_lwusw")
+script = ExtResource("8_h1js1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_esp12")
+}
+
+[node name="Timer" type="Timer" parent="Hand"]
+wait_time = 0.3
+autostart = true
+
+[connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
+[connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

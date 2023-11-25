@@ -1,0 +1,124 @@
+[gd_scene load_steps=22 format=3 uid="uid://diymfh13irupa"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_qr3kh"]
+[ext_resource type="AudioStream" uid="uid://dwnkcls4ecjeg" path="res://art/ost mp3/06intro.mp3" id="2_k5aui"]
+[ext_resource type="AudioStream" uid="uid://dsb10ombbh5fe" path="res://art/ost mp3/06loop.mp3" id="3_hskne"]
+[ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_3g5ed"]
+[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_kvaos"]
+[ext_resource type="Texture2D" uid="uid://06nmtkm73xpl" path="res://art/imagens finais/6-mao3.png" id="6_ejir4"]
+[ext_resource type="Texture2D" uid="uid://c6l7v4o0j745g" path="res://art/imagens finais/5-mao1.png" id="7_u48q1"]
+[ext_resource type="Script" path="res://scripts/hand_sway.gd" id="8_wqxel"]
+[ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="9_35bgv"]
+[ext_resource type="Texture2D" uid="uid://cuitahdc15ean" path="res://art/imagens finais/4-mao1.png" id="10_5m001"]
+[ext_resource type="Texture2D" uid="uid://o3ytj2h434mb" path="res://art/imagens finais/4-mao2.png" id="11_n7r3w"]
+[ext_resource type="Texture2D" uid="uid://d3g3nuhjdsggb" path="res://art/imagens finais/5-mao2.png" id="12_1g6nm"]
+[ext_resource type="Texture2D" uid="uid://bugl8rs0026u2" path="res://art/imagens finais/6-mao1.png" id="13_osh40"]
+[ext_resource type="Texture2D" uid="uid://coooqmb0liuk3" path="res://art/imagens finais/6-mao2.png" id="14_fhimf"]
+[ext_resource type="Texture2D" uid="uid://b7g6ys3e580lq" path="res://art/imagens finais/6-tinder1.png" id="15_8bi0y"]
+[ext_resource type="Texture2D" uid="uid://b21d1cw8gktd4" path="res://art/imagens finais/6-tinder2.png" id="16_rpbd0"]
+[ext_resource type="Script" path="res://scripts/tinder.gd" id="17_xk0cm"]
+
+[sub_resource type="Animation" id="Animation_iyan7"]
+resource_name = "4-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_5m001"), ExtResource("11_n7r3w"), ExtResource("10_5m001")]
+}
+
+[sub_resource type="Animation" id="Animation_yhyci"]
+resource_name = "5-mao"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_u48q1"), ExtResource("12_1g6nm"), ExtResource("7_u48q1")]
+}
+
+[sub_resource type="Animation" id="Animation_gjqdl"]
+resource_name = "6-mao"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_osh40"), ExtResource("14_fhimf"), ExtResource("6_ejir4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_8bi0y"), ExtResource("16_rpbd0"), ExtResource("16_rpbd0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
+_data = {
+"1-mao": ExtResource("9_35bgv"),
+"4-mao": SubResource("Animation_iyan7"),
+"5-mao": SubResource("Animation_yhyci"),
+"6-mao": SubResource("Animation_gjqdl")
+}
+
+[node name="Level 6" type="Node2D"]
+script = ExtResource("1_qr3kh")
+handanim = "6-mao"
+
+[node name="IntroSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k5aui")
+autoplay = true
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hskne")
+script = ExtResource("4_3g5ed")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_kvaos")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(965, 539)
+texture = ExtResource("6_ejir4")
+script = ExtResource("8_wqxel")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_esp12")
+}
+
+[node name="Timer" type="Timer" parent="Hand"]
+wait_time = 0.3
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(-6, -2)
+texture = ExtResource("16_rpbd0")
+script = ExtResource("17_xk0cm")
+
+[connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
+[connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

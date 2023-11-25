@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0fhup8x8mbyx"
+path="res://.godot/imported/08intro.mp3-6f51194e0381c6907da4259493bda02d.mp3str"
+
+[deps]
+
+source_file="res://art/ost mp3/08intro.mp3"
+dest_files=["res://.godot/imported/08intro.mp3-6f51194e0381c6907da4259493bda02d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

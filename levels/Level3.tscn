@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://dj8frsn8oh5o5"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_mf2dc"]
+[ext_resource type="AudioStream" uid="uid://bcr5ev2yp34e8" path="res://art/ost mp3/03loop.mp3" id="2_40sik"]
+[ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_jsims"]
+[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_nr5sc"]
+[ext_resource type="Texture2D" uid="uid://do7o4e6id64fj" path="res://art/imagens finais/3-mao2.png" id="5_ttx3x"]
+[ext_resource type="Script" path="res://scripts/hand_sway.gd" id="8_1p02n"]
+[ext_resource type="Texture2D" uid="uid://bkl21eavbx3ai" path="res://art/imagens finais/3-mao1.png" id="8_10w6q"]
+[ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="9_57w8v"]
+
+[sub_resource type="Animation" id="Animation_anb21"]
+resource_name = "3-mao"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_ttx3x"), ExtResource("8_10w6q")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
+_data = {
+"1-mao": ExtResource("9_57w8v"),
+"3-mao": SubResource("Animation_anb21")
+}
+
+[node name="Level 3" type="Node2D"]
+script = ExtResource("1_mf2dc")
+handanim = "3-mao"
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_40sik")
+autoplay = true
+script = ExtResource("4_jsims")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_nr5sc")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(933, 546)
+texture = ExtResource("5_ttx3x")
+script = ExtResource("8_1p02n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_esp12")
+}
+
+[node name="Timer" type="Timer" parent="Hand"]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

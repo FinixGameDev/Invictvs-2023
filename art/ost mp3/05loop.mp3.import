@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dufr01tq36iey"
+path="res://.godot/imported/05loop.mp3-6275f43e97c903f3cc6b1242d0be1774.mp3str"
+
+[deps]
+
+source_file="res://art/ost mp3/05loop.mp3"
+dest_files=["res://.godot/imported/05loop.mp3-6275f43e97c903f3cc6b1242d0be1774.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

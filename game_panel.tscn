@@ -1,0 +1,507 @@
+[gd_scene load_steps=33 format=3 uid="uid://bcurxmcaac34g"]
+
+[ext_resource type="Script" path="res://scripts/game_panel.gd" id="1_ithmw"]
+[ext_resource type="PackedScene" uid="uid://dp4jbk4quxcti" path="res://minigame.tscn" id="2_3p1a6"]
+[ext_resource type="Texture2D" uid="uid://ddc108so3207v" path="res://art/panel_template.jpg" id="3_djtgn"]
+
+[sub_resource type="Animation" id="Animation_ioogg"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8nnwx"]
+_data = {
+"fade_in": SubResource("Animation_ioogg")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_qwpfc"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_pmpb7"]
+device = -1
+pressed = true
+keycode = 48
+unicode = 48
+
+[sub_resource type="Shortcut" id="Shortcut_7myvk"]
+events = [SubResource("InputEventKey_pmpb7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_s52pp"]
+device = -1
+pressed = true
+keycode = 49
+physical_keycode = 49
+key_label = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_n8ibe"]
+events = [SubResource("InputEventKey_s52pp")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_j57pt"]
+device = -1
+pressed = true
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_qq8ox"]
+events = [SubResource("InputEventKey_j57pt")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_r5ep5"]
+device = -1
+pressed = true
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_olcsm"]
+events = [SubResource("InputEventKey_r5ep5")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_h5hs3"]
+device = -1
+pressed = true
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_l2s2g"]
+events = [SubResource("InputEventKey_h5hs3")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rrslp"]
+device = -1
+pressed = true
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_ejyd2"]
+events = [SubResource("InputEventKey_rrslp")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hhukl"]
+device = -1
+pressed = true
+keycode = 54
+unicode = 54
+
+[sub_resource type="Shortcut" id="Shortcut_ppnr0"]
+events = [SubResource("InputEventKey_hhukl")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_w5d15"]
+device = -1
+pressed = true
+keycode = 55
+unicode = 55
+
+[sub_resource type="Shortcut" id="Shortcut_gn1tt"]
+events = [SubResource("InputEventKey_w5d15")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_un0eq"]
+device = -1
+pressed = true
+keycode = 56
+unicode = 56
+
+[sub_resource type="Shortcut" id="Shortcut_8ajxx"]
+events = [SubResource("InputEventKey_un0eq")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_lgil1"]
+device = -1
+pressed = true
+keycode = 57
+unicode = 57
+
+[sub_resource type="Shortcut" id="Shortcut_673mg"]
+events = [SubResource("InputEventKey_lgil1")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ocbkf"]
+device = -1
+pressed = true
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_5knx5"]
+events = [SubResource("InputEventKey_ocbkf")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cex6p"]
+device = -1
+pressed = true
+keycode = 87
+unicode = 119
+
+[sub_resource type="Shortcut" id="Shortcut_fi1w1"]
+events = [SubResource("InputEventKey_cex6p")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_7kej0"]
+device = -1
+pressed = true
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_e2x0k"]
+events = [SubResource("InputEventKey_7kej0")]
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -964.0
+offset_top = -549.0
+offset_right = 956.0
+offset_bottom = 531.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ithmw")
+
+[node name="Minigame" parent="." instance=ExtResource("2_3p1a6")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Fade-in" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 1921.0
+offset_bottom = 1084.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade-in"]
+autoplay = "fade_in"
+libraries = {
+"": SubResource("AnimationLibrary_8nnwx")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 720.0
+offset_right = 1392.0
+offset_bottom = 1055.0
+texture = ExtResource("3_djtgn")
+
+[node name="ColorRect0" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 769.0
+offset_right = 561.0
+offset_bottom = 852.0
+
+[node name="Label" type="Label" parent="ColorRect0"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect0"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 82.0
+shortcut = SubResource("Shortcut_7myvk")
+
+[node name="ColorRect1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 901.0
+offset_right = 564.0
+offset_bottom = 984.0
+
+[node name="Label" type="Label" parent="ColorRect1"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_n8ibe")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 769.0
+offset_right = 696.0
+offset_bottom = 852.0
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 83.0
+shortcut = SubResource("Shortcut_qq8ox")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 767.0
+offset_right = 827.0
+offset_bottom = 850.0
+
+[node name="Label" type="Label" parent="ColorRect3"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_olcsm")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 902.0
+offset_right = 828.0
+offset_bottom = 985.0
+
+[node name="Label" type="Label" parent="ColorRect4"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect4"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 82.0
+shortcut = SubResource("Shortcut_l2s2g")
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 771.0
+offset_right = 962.0
+offset_bottom = 854.0
+
+[node name="Label" type="Label" parent="ColorRect5"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect5"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_ejyd2")
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 903.0
+offset_right = 962.0
+offset_bottom = 986.0
+
+[node name="Label" type="Label" parent="ColorRect6"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect6"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 82.0
+shortcut = SubResource("Shortcut_ppnr0")
+
+[node name="ColorRect7" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 769.0
+offset_right = 1093.0
+offset_bottom = 852.0
+
+[node name="Label" type="Label" parent="ColorRect7"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect7"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_gn1tt")
+
+[node name="ColorRect8" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 901.0
+offset_right = 1095.0
+offset_bottom = 984.0
+
+[node name="Label" type="Label" parent="ColorRect8"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect8"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 82.0
+shortcut = SubResource("Shortcut_8ajxx")
+
+[node name="ColorRect9" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 769.0
+offset_right = 1226.0
+offset_bottom = 852.0
+
+[node name="Label" type="Label" parent="ColorRect9"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect9"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 83.0
+shortcut = SubResource("Shortcut_673mg")
+
+[node name="ColorRect10" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 901.0
+offset_right = 1228.0
+offset_bottom = 984.0
+
+[node name="Label" type="Label" parent="ColorRect10"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect10"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_5knx5")
+
+[node name="ColorRect11" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1258.0
+offset_top = 771.0
+offset_right = 1360.0
+offset_bottom = 854.0
+
+[node name="Label" type="Label" parent="ColorRect11"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect11"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 83.0
+shortcut = SubResource("Shortcut_fi1w1")
+
+[node name="ColorRect12" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1260.0
+offset_top = 903.0
+offset_right = 1362.0
+offset_bottom = 986.0
+
+[node name="Label" type="Label" parent="ColorRect12"]
+layout_mode = 0
+offset_right = 103.0
+offset_bottom = 83.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect12"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 84.0
+shortcut = SubResource("Shortcut_e2x0k")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = -139.0
+offset_right = 1388.0
+offset_bottom = -66.0
+
+[connection signal="lost" from="Minigame" to="." method="_on_Minigame_lost"]
+[connection signal="meter_changed" from="Minigame" to="." method="_on_minigame_meter_changed"]
+[connection signal="progress" from="Minigame" to="." method="_on_minigame_progress"]
+[connection signal="reset" from="Minigame" to="." method="_on_minigame_reset"]
+[connection signal="start" from="Minigame" to="." method="_on_minigame_start"]
+[connection signal="win" from="Minigame" to="." method="_on_Minigame_win"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
