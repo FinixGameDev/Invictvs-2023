@@ -17,7 +17,7 @@ func _ready():
 
 func _on_minigame_progress(value):
 	print("ColorRect" + str(value))
-	get_node("ColorRect" + str(value)).color = Color.GREEN
+	get_node("TextureRect/ColorRect" + str(value)).color = Color.GREEN
 
 
 
@@ -25,14 +25,14 @@ func _on_minigame_progress(value):
 
 func _on_minigame_reset():
 	for i in 13:
-		get_node("ColorRect" + str(i)).color = Color.RED
+		get_node("TextureRect/ColorRect" + str(i)).color = Color.RED
 	$Timer.start()
 
 
 
 func _on_Timer_timeout():
 	for i in 13:
-		get_node("ColorRect" + str(i)).color = Color.WHITE
+		get_node("TextureRect/ColorRect" + str(i)).color = Color.WHITE
 
 
 func _on_Minigame_win():
@@ -46,9 +46,9 @@ func _on_Minigame_lost():
 
 
 func _on_minigame_meter_changed(value):
-	$ProgressBar.value = value
+	pass
 
 
 func _on_minigame_start(dictionary):
 	for i in 13:
-		get_node("ColorRect" + str(i)).get_child(0).text = str(dictionary[str(i)])
+		get_node("TextureRect/ColorRect" + str(i)).get_child(0).text = str(dictionary[str(i)])

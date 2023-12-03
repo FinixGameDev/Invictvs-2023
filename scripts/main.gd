@@ -13,14 +13,23 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$WinTexture.visible = false
 	
 func _process(delta):
 	if is_playing == false && Input.is_action_just_pressed("play"):
 		start_game()
 
 func start_game():
+	if get_node("Credits") != null:
+		get_node("Credits").queue_free()
+		
 	is_playing = true
+	
+	$AudioStreamPlayer2D.stop()
+	
+	$TextureRect.visible = false
+	$PlayGame2.visible = false
+	$WinTexture.visible = false
 	scene_to_load = load("res://levels/Level" + str(level) + ".tscn").instantiate()
 	
 	$PlayGame.visible = false
@@ -45,13 +54,29 @@ func _on_lost():
 	end_game()
 	level = 1
 	score = 0
+	
+	$TextureRect.visible = true
+	$PlayGame2.visible = true
+	$AudioStreamPlayer2D.play()
 
 func _on_win():
 	end_game()
+	
 	level += 1
 	if level > 15:
 		level = 1
-		#print win screen
+		score = 0
+		$PlayGame.visible = false
+		var credits = preload("res://credits.tscn").instantiate()
+		add_child(credits)
+	else:
+		if level != 3 && level != 12:
+			$WinTexture.texture = load("res://art/Next_level/next_level_"+ str(level - 1)+ ".png")
+			$WinTexture.visible = true
+		else:
+			start_game()
+
+
 
 func _on_play_game_pressed():
 	start_game()

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var sway = 500
+@export var sway = 500
 @onready var origin = position
 
 @onready var randx = randf() * -0.5

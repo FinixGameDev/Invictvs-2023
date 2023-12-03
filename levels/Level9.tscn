@@ -1,10 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://dbucead41tb2p"]
+[gd_scene load_steps=56 format=3 uid="uid://dbucead41tb2p"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_rc5cc"]
 [ext_resource type="AudioStream" uid="uid://da5rocs74ewln" path="res://art/ost mp3/09intro.mp3" id="2_qsacq"]
 [ext_resource type="AudioStream" uid="uid://6sxshdj37frf" path="res://art/ost mp3/09loop.mp3" id="3_yeg8o"]
 [ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_vv5jw"]
-[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_fb0g3"]
+[ext_resource type="VideoStream" path="res://art/fundos ogg/9-fundo_2_stab_apo8_prob3.ogv" id="5_ih4r8"]
 [ext_resource type="Texture2D" uid="uid://s1bukuwvryxk" path="res://art/imagens finais/8-mao1.png" id="6_m32vt"]
 [ext_resource type="Texture2D" uid="uid://byrf25x3acycf" path="res://art/imagens finais/9-mao1.png" id="6_orjof"]
 [ext_resource type="Script" path="res://scripts/hand_sway.gd" id="7_hwnfv"]
@@ -42,6 +42,12 @@
 [ext_resource type="Texture2D" uid="uid://hccmokhk5fy3" path="res://art/imagens finais/8-mao25.png" id="39_j4l6b"]
 [ext_resource type="Texture2D" uid="uid://bv7puxfo8x7a2" path="res://art/imagens finais/8-mao26.png" id="40_wegdy"]
 [ext_resource type="Texture2D" uid="uid://dyp7fr54qfcg5" path="res://art/imagens finais/9-mao2.png" id="42_n32xq"]
+[ext_resource type="AudioStream" uid="uid://b2jucuhkh03s4" path="res://art/sound fx/10.mp3" id="43_yod2d"]
+[ext_resource type="AudioStream" uid="uid://dlklp8uj0wyjx" path="res://art/snakes/09.wav" id="44_ign22"]
+[ext_resource type="AudioStream" uid="uid://bb270y0f67lrm" path="res://art/snakes/09_1.wav" id="45_mynmm"]
+[ext_resource type="AudioStream" uid="uid://h8wfjw2nrd5b" path="res://art/snakes/09_2.wav" id="46_givgd"]
+[ext_resource type="AudioStream" uid="uid://bf6nq4bunxbli" path="res://art/snakes/09_3.wav" id="47_1on0h"]
+[ext_resource type="AudioStream" uid="uid://b4d58k7ttotn7" path="res://art/snakes/09_4.wav" id="48_sph47"]
 
 [sub_resource type="Animation" id="Animation_iyan7"]
 resource_name = "4-mao"
@@ -121,6 +127,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("6_orjof"), ExtResource("42_n32xq"), ExtResource("6_orjof")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
 _data = {
@@ -132,7 +150,21 @@ _data = {
 "9-mao": SubResource("Animation_nsxtd")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ewxj"]
+streams_count = 5
+stream_0/stream = ExtResource("44_ign22")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("45_mynmm")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("46_givgd")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("47_1on0h")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("48_sph47")
+stream_4/weight = 1.0
+
 [node name="Level 9" type="Node2D"]
+position = Vector2(0, 1088)
 script = ExtResource("1_rc5cc")
 handanim = "9-mao"
 
@@ -144,12 +176,15 @@ autoplay = true
 stream = ExtResource("3_yeg8o")
 script = ExtResource("4_vv5jw")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("5_fb0g3")
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_ih4r8")
+volume_db = -80.0
+autoplay = true
 
 [node name="Hand" type="Sprite2D" parent="."]
-position = Vector2(967, 535)
+position = Vector2(963, 784)
 texture = ExtResource("6_orjof")
 script = ExtResource("7_hwnfv")
 
@@ -161,6 +196,13 @@ libraries = {
 [node name="Timer" type="Timer" parent="Hand"]
 wait_time = 0.3
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hand"]
+stream = ExtResource("43_yod2d")
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8ewxj")
+autoplay = true
 
 [connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

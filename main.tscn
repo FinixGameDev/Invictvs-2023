@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://db41xxgwufmjn"]
+[gd_scene load_steps=5 format=3 uid="uid://db41xxgwufmjn"]
 
-[ext_resource type="PackedScene" path="res://networking/network.tscn" id="1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="2"]
-[ext_resource type="Script" path="res://networking/gestorSockets.gd" id="3_pa31q"]
+[ext_resource type="Texture2D" uid="uid://c5w5oyeuah8rh" path="res://art/Next_level/next_level_2.png" id="4_5whgb"]
+[ext_resource type="Texture2D" uid="uid://cbvtecqvsu873" path="res://art/Next_level/titlescr.png" id="5_isus3"]
+[ext_resource type="AudioStream" uid="uid://dpo50ro6q7y0k" path="res://00TSintro.mp3" id="6_darlo"]
 
 [node name="Main" type="Node"]
 script = ExtResource("2")
 
-[node name="Socket_Client" parent="." instance=ExtResource("1")]
-script = ExtResource("3_pa31q")
+[node name="WinTexture" type="TextureRect" parent="."]
+offset_left = 198.0
+offset_top = 954.0
+offset_right = 1727.0
+offset_bottom = 2149.0
+texture = ExtResource("4_5whgb")
+expand_mode = 1
 
 [node name="PlayGame" type="Button" parent="."]
-offset_left = 824.0
-offset_top = 496.0
-offset_right = 1020.0
-offset_bottom = 618.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 1264.0
+offset_top = 1764.0
+offset_right = 1404.0
+offset_bottom = 1916.0
+
+[node name="PlayGame2" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1429.0
+offset_top = 1838.0
+offset_right = 1798.0
+offset_bottom = 1990.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = 1013.0
+offset_right = 1922.0
+offset_bottom = 2093.0
+texture = ExtResource("5_isus3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_darlo")
 
 [connection signal="pressed" from="PlayGame" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="PlayGame2" to="." method="_on_play_game_pressed"]

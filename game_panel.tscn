@@ -1,8 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bcurxmcaac34g"]
+[gd_scene load_steps=33 format=3 uid="uid://bcurxmcaac34g"]
 
 [ext_resource type="Script" path="res://scripts/game_panel.gd" id="1_ithmw"]
 [ext_resource type="PackedScene" uid="uid://dp4jbk4quxcti" path="res://minigame.tscn" id="2_3p1a6"]
-[ext_resource type="Texture2D" uid="uid://ddc108so3207v" path="res://art/panel_template.jpg" id="3_djtgn"]
+[ext_resource type="Texture2D" uid="uid://viyjujptesg8" path="res://art/imagens finais/updatebotoes.png" id="3_ii8vp"]
+[ext_resource type="Script" path="res://scripts/panel_button.gd" id="4_aqx5j"]
+[ext_resource type="Script" path="res://reset_buttons.gd" id="4_c6h3a"]
 
 [sub_resource type="Animation" id="Animation_ioogg"]
 resource_name = "fade_in"
@@ -26,7 +28,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_qwpfc"]
-font_size = 50
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="InputEventKey" id="InputEventKey_s52pp"]
@@ -164,10 +166,11 @@ one_shot = true
 
 [node name="Fade-in" type="ColorRect" parent="."]
 layout_mode = 0
-offset_top = 7.0
-offset_right = 1921.0
-offset_bottom = 1084.0
-color = Color(0, 0, 0, 0)
+offset_left = 4.0
+offset_top = 490.0
+offset_right = 1925.0
+offset_bottom = 1567.0
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade-in"]
 autoplay = "fade_in"
@@ -177,316 +180,327 @@ libraries = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 430.0
-offset_top = 720.0
-offset_right = 1392.0
-offset_bottom = 1055.0
-texture = ExtResource("3_djtgn")
+offset_left = 10.0
+offset_top = 494.0
+offset_right = 1930.0
+offset_bottom = 1574.0
+texture = ExtResource("3_ii8vp")
+script = ExtResource("4_c6h3a")
 
-[node name="ColorRect0" type="ColorRect" parent="."]
+[node name="ColorRect0" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 769.0
-offset_right = 561.0
-offset_bottom = 852.0
+offset_left = 750.0
+offset_top = 865.0
+offset_right = 796.0
+offset_bottom = 908.0
 
-[node name="Label" type="Label" parent="ColorRect0"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect0"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 46.0
+offset_bottom = 38.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect0"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect0"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 82.0
+offset_right = 46.0
+offset_bottom = 44.0
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect1" type="ColorRect" parent="."]
+[node name="ColorRect1" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 462.0
-offset_top = 901.0
-offset_right = 564.0
-offset_bottom = 984.0
-
-[node name="Label" type="Label" parent="ColorRect1"]
-layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
-text = "N"
-label_settings = SubResource("LabelSettings_qwpfc")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="ColorRect1"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 103.0
-offset_bottom = 84.0
-shortcut = SubResource("Shortcut_n8ibe")
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 594.0
-offset_top = 769.0
-offset_right = 696.0
-offset_bottom = 852.0
-
-[node name="Label" type="Label" parent="ColorRect2"]
-layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
-text = "N"
-label_settings = SubResource("LabelSettings_qwpfc")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="ColorRect2"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 102.0
-offset_bottom = 83.0
-shortcut = SubResource("Shortcut_qq8ox")
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 725.0
-offset_top = 767.0
+offset_left = 772.0
+offset_top = 918.0
 offset_right = 827.0
-offset_bottom = 850.0
+offset_bottom = 959.0
 
-[node name="Label" type="Label" parent="ColorRect3"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect1"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 55.0
+offset_bottom = 42.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect3"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect1"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 84.0
+offset_right = 56.0
+offset_bottom = 42.0
+shortcut = SubResource("Shortcut_n8ibe")
+script = ExtResource("4_aqx5j")
+
+[node name="ColorRect2" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 866.0
+offset_right = 858.0
+offset_bottom = 908.0
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect2"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 43.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 44.0
+shortcut = SubResource("Shortcut_qq8ox")
+script = ExtResource("4_aqx5j")
+
+[node name="ColorRect3" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 871.0
+offset_top = 865.0
+offset_right = 915.0
+offset_bottom = 907.0
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect3"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 42.0
+text = "N"
+label_settings = SubResource("LabelSettings_qwpfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="TextureRect/ColorRect3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 43.0
 shortcut = SubResource("Shortcut_olcsm")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="ColorRect4" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 726.0
-offset_top = 902.0
-offset_right = 828.0
-offset_bottom = 985.0
+offset_left = 870.0
+offset_top = 917.0
+offset_right = 915.0
+offset_bottom = 959.0
 
-[node name="Label" type="Label" parent="ColorRect4"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect4"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 46.0
+offset_bottom = 43.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect4"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect4"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 82.0
+offset_right = 45.0
+offset_bottom = 43.0
 shortcut = SubResource("Shortcut_l2s2g")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect5" type="ColorRect" parent="."]
+[node name="ColorRect5" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 860.0
-offset_top = 771.0
-offset_right = 962.0
-offset_bottom = 854.0
+offset_left = 933.0
+offset_top = 863.0
+offset_right = 976.0
+offset_bottom = 909.0
 
-[node name="Label" type="Label" parent="ColorRect5"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect5"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 44.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect5"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect5"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 84.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 45.0
+offset_bottom = 45.0
 shortcut = SubResource("Shortcut_ejyd2")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect6" type="ColorRect" parent="."]
+[node name="ColorRect6" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 860.0
-offset_top = 903.0
-offset_right = 962.0
-offset_bottom = 986.0
+offset_left = 933.0
+offset_top = 917.0
+offset_right = 977.0
+offset_bottom = 960.0
 
-[node name="Label" type="Label" parent="ColorRect6"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect6"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 43.0
+offset_bottom = 43.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect6"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect6"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 101.0
-offset_bottom = 82.0
+offset_right = 45.0
+offset_bottom = 43.0
 shortcut = SubResource("Shortcut_ppnr0")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect7" type="ColorRect" parent="."]
+[node name="ColorRect7" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 991.0
-offset_top = 769.0
-offset_right = 1093.0
-offset_bottom = 852.0
+offset_left = 996.0
+offset_top = 866.0
+offset_right = 1038.0
+offset_bottom = 908.0
 
-[node name="Label" type="Label" parent="ColorRect7"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect7"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 41.0
+offset_bottom = 44.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect7"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect7"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 106.0
-offset_bottom = 84.0
+offset_right = 43.0
+offset_bottom = 43.0
 shortcut = SubResource("Shortcut_gn1tt")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect8" type="ColorRect" parent="."]
+[node name="ColorRect8" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 993.0
-offset_top = 901.0
-offset_right = 1095.0
-offset_bottom = 984.0
+offset_left = 994.0
+offset_top = 918.0
+offset_right = 1037.0
+offset_bottom = 959.0
 
-[node name="Label" type="Label" parent="ColorRect8"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect8"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 45.0
+offset_bottom = 41.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect8"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect8"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 82.0
+offset_right = 44.0
+offset_bottom = 42.0
 shortcut = SubResource("Shortcut_8ajxx")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect9" type="ColorRect" parent="."]
+[node name="ColorRect9" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1124.0
-offset_top = 769.0
-offset_right = 1226.0
-offset_bottom = 852.0
+offset_left = 1055.0
+offset_top = 865.0
+offset_right = 1100.0
+offset_bottom = 908.0
 
-[node name="Label" type="Label" parent="ColorRect9"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect9"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 46.0
+offset_bottom = 43.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect9"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect9"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 105.0
-offset_bottom = 83.0
+offset_right = 46.0
+offset_bottom = 44.0
 shortcut = SubResource("Shortcut_673mg")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect10" type="ColorRect" parent="."]
+[node name="ColorRect10" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1126.0
-offset_top = 901.0
-offset_right = 1228.0
-offset_bottom = 984.0
+offset_left = 1056.0
+offset_top = 918.0
+offset_right = 1102.0
+offset_bottom = 961.0
 
-[node name="Label" type="Label" parent="ColorRect10"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect10"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 46.0
+offset_bottom = 43.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect10"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect10"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 84.0
+offset_right = 45.0
+offset_bottom = 43.0
 shortcut = SubResource("Shortcut_5knx5")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect11" type="ColorRect" parent="."]
+[node name="ColorRect11" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1258.0
-offset_top = 771.0
-offset_right = 1360.0
-offset_bottom = 854.0
+offset_left = 1120.0
+offset_top = 866.0
+offset_right = 1163.0
+offset_bottom = 908.0
 
-[node name="Label" type="Label" parent="ColorRect11"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect11"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 43.0
+offset_bottom = 42.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect11"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect11"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 83.0
+offset_right = 43.0
+offset_bottom = 42.0
 shortcut = SubResource("Shortcut_fi1w1")
+script = ExtResource("4_aqx5j")
 
-[node name="ColorRect12" type="ColorRect" parent="."]
+[node name="ColorRect12" type="ColorRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1260.0
-offset_top = 903.0
-offset_right = 1362.0
-offset_bottom = 986.0
+offset_left = 1119.0
+offset_top = 918.0
+offset_right = 1164.0
+offset_bottom = 960.0
 
-[node name="Label" type="Label" parent="ColorRect12"]
+[node name="Label" type="Label" parent="TextureRect/ColorRect12"]
 layout_mode = 0
-offset_right = 103.0
-offset_bottom = 83.0
+offset_right = 45.0
+offset_bottom = 42.0
 text = "N"
 label_settings = SubResource("LabelSettings_qwpfc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect12"]
+[node name="Button" type="Button" parent="TextureRect/ColorRect12"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 84.0
+offset_right = 45.0
+offset_bottom = 42.0
 shortcut = SubResource("Shortcut_e2x0k")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 430.0
-offset_top = -139.0
-offset_right = 1388.0
-offset_bottom = -66.0
+script = ExtResource("4_aqx5j")
 
 [connection signal="lost" from="Minigame" to="." method="_on_Minigame_lost"]
 [connection signal="meter_changed" from="Minigame" to="." method="_on_minigame_meter_changed"]

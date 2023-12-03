@@ -1,0 +1,185 @@
+[gd_scene load_steps=7 format=3 uid="uid://xye3ir80j83q"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_0qdja"]
+[ext_resource type="AudioStream" uid="uid://cmbptws8arrp1" path="res://17Victoryclean.mp3" id="2_7ttlr"]
+
+[sub_resource type="Animation" id="Animation_m07m5"]
+resource_name = "credits"
+length = 250.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 225.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1950), Vector2(0, -2919)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 234.3, 244),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjgto"]
+_data = {
+"credits": SubResource("Animation_m07m5")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_bv5hn"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hhfp"]
+font_size = 45
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qdja")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
+libraries = {
+"": SubResource("AnimationLibrary_jjgto")
+}
+
+[node name="ScrollText" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -2919.0
+offset_right = 40.0
+offset_bottom = -2878.98
+
+[node name="Story" type="Label" parent="ScrollText"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 102.0
+offset_right = 1772.0
+offset_bottom = 1098.0
+text = "Another day has passed, but this time tomorrow brings another reckoning. Count Toothertin's days of bohemian indulgence are numbered, his existence a peculiar blend of man and machine. His arms, still clinging to the remnants of human warmth, are a relic of the past. Yet, the most curious aspect of Toothertin lies in his teeth, which are fashioned from gleaming tin, an enigma shrouded in mystery.
+
+The Count had long reveled in his eccentric lifestyle, embracing the bohemian spirit with a passion for the arts, pleasure, and the boundless pursuit of enjoyment. His opulent mansion echoed with laughter, music, and the clinking of glasses as he hosted extravagant soirees that left a trail of bewildered guests.
+
+However, the whimsical tale took an unexpected turn on a fateful night when Toothertin, under the spell of his desires, encountered a captivating Argonian named Serpentia at a masquerade ball. Their eyes locked across the crowded room, and an irresistible force drew them together like moths to a flame. The night unfolded in a 
+whirlwind of passion, indulgence, and they tangoed into a night of passion that could make the devil blush.
+
+Little did Toothertin know that this liaison would mark the beginning of the end for his carefree existence. In the following weeks, Serpentia revealed the unforeseen consequence of their passionate encounter – she was with child, carrying the Count's progeny. The revelation sent shockwaves through Toothertin's carefully constructed world.
+
+As news of the impending arrival spread, the bohemian count found himself torn between the carefree life he had cultivated and the responsibilities of impending fatherhood. Whispers of scandal followed him like a shadow, threatening to shatter the illusion of invincibility he had carefully crafted.
+
+Haunted by the impending responsibilities, Toothertin retreated into the solitude of his mansion, grappling with the dichotomy of his dual existence. His once-vibrant abode fell silent, the laughter replaced by an eerie hollowness that echoed through empty halls.
+
+The enigmatic Count found himself at a crossroads, forced to confront the consequences of his actions. The mechanical hum of his human limbs seemed to underscore the inevitability of change, reminding him that even in a life of indulgence, some debts could not be avoided.
+
+As the mysterious cyborg count prepared to face the challenges of impending fatherhood, the once-vibrant bohemian life he had reveled in was slowly fading into memory, replaced by the weight of responsibility and the uncertain future that lay ahead. The mansion, once a haven of revelry, now stood as a silent witness to the transformation of Toothertin's life from one of carefree abandon to a destiny defined by the impending arrival of a new life.
+"
+label_settings = SubResource("LabelSettings_bv5hn")
+autowrap_mode = 3
+
+[node name="Story2" type="Label" parent="ScrollText"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 1963.0
+offset_right = 1772.0
+offset_bottom = 5040.0
+text = "UP NEXT:
+
+Episode 2
+
+In the aftermath of cosmic revelry and celestial consequences, Count Toothertin's life took an unexpected turn. Serpentia, the Argonian enchantress, gave birth to a child that defied the laws of nature. The mansion, once a haven of decadence, now echoed with the cries of an otherworldly being.
+
+The child, born of the mysterious union between man and Argonian, revealed its true nature as it grew. An insatiable hunger for destruction and an aura of malevolence accompanied its every move. The once-grand mansion became a battleground, its halls echoing with the clash of cosmic forces.
+
+Toothertin, now a father grappling with a progeny straight from the depths of a cosmic nightmare, sought answers in forbidden tomes and ancient scrolls. The metallic teeth that once whispered tales of intrigue were now clenched in desperation as he delved into the secrets of his lineage.
+
+The child, a demonic entity with eyes that glowed like the embers of a cosmic furnace, seemed to be a harbinger of apocalypse. The city, once a backdrop to the count's extravagant life, trembled beneath the impending threat of destruction. The universe, indifferent to the turmoil of its inhabitants, watched as Toothertin's bohemian legacy transformed into a cosmic tragedy.
+
+In a desperate bid to save what remained of his world, Toothertin, armed with cybernetic resolve and a heart heavy with paternal guilt, sought out the celestial forces that governed existence. The tin teeth that once symbolized his enigmatic nature now held the weight of a father's remorse.
+
+As the final confrontation approached, Toothertin faced the cosmic paradox of his existence. A father torn between love and the reality of a demonic offspring, he stood on the precipice of a choice that would determine the fate of worlds.
+
+In a blaze of interstellar fury, the mansion crumbled, and the once-grand count faced the inevitable clash with the demonic force that emerged from his lineage. The universe, unyielding and eternal, observed as the enigma of Count Toothertin's life reached its cataclysmic conclusion—a tale of love, loss, and the cosmic consequences of a union that defied the boundaries of existence.
+
+
+
+Episode 3
+
+In the aftermath of cosmic upheaval and the celestial clash that shattered Count Toothertin's mansion, remnants of his enigmatic life scattered across the universe. Among the debris, a mysterious child emerged from the shadows—a product of a forgotten liaison with a Khajiit before the fateful encounter with Serpentia.
+
+This unknown child, adorned with fur that mirrored the cosmic void, stumbled upon a peculiar find amidst the wreckage of the once-grand mansion. Tin teeth, glinting like fallen stars, lay abandoned, a relic of the cyborg count's enigmatic past. The child, possessing an innate curiosity, clutched the metallic treasures, unaware of the tumultuous history they whispered.
+
+As the child grew, the tin teeth became an emblem of cosmic intrigue, an artifact linking them to the elusive lineage of Count Toothertin. The Khajiit bloodline infused with the count's cybernetic essence created a being of extraordinary potential—imbued with the feline agility of the Khajiit and the enigmatic charm that defined Toothertin.
+
+The child's journey unfolded against the backdrop of a universe still reeling from the aftermath of the demonic force unleashed by Toothertin's previous liaison with Serpentia. A tale of unknown origins, cosmic inheritance, and the relentless pursuit of destiny.
+
+Driven by a cosmic calling, the child embarked on a quest to understand the tangled web of their lineage. Along the way, they encountered remnants of the count's bohemian past—tales of decadence, the clash of cosmic forces, and the ill-fated dance with fate.
+
+In the shadows of starlit corridors, the Khajiit child traced the cosmic footprints left by Toothertin. The tin teeth, now an heirloom of a bygone era, became a compass guiding them through the cosmic labyrinth. The child, a cosmic wanderer with inherited enigma, sought answers in the echoes of the past, all while the universe watched, indifferent yet somehow conspiratorial.
+
+As the child delved deeper into the enigmatic legacy of Count Toothertin, they found themselves entwined in a cosmic drama that transcended time and space. The tin teeth, a celestial key to unlock the mysteries of their existence, now glittered with the promise of revelations yet to come—a saga of a lineage entangled with the very fabric of the universe.
+
+
+
+Episode 4
+
+The cosmic tapestry unfolded, weaving the destinies of the two enigmatic offspring born from Count Toothertin's tumultuous liaisons—a Khajiit child with feline grace and an Argonian entity infused with cybernetic might. As the universe observed with indifferent curiosity, the paths of the two collided in a cosmic clash of good and evil.
+
+The Khajiit child, possessing the tin teeth that whispered tales of the count's bohemian past, ventured forth with a quest for understanding. In contrast, the Argonian entity, borne from the demonic force of a one-night stand with Serpentia, harbored an insatiable hunger for destruction.
+
+Their meeting was inevitable, an intersection of fate beneath the flickering light of a distant star. The Khajiit, agile and adorned in celestial fur, faced the looming presence of the Argonian cyborg, a creature of shadows and steel. The cosmic battleground, once the decadent mansion of Count Toothertin, now bore witness to a cataclysmic clash that transcended mortal comprehension.
+
+The Khajiit, with the tin teeth as their cosmic talisman, moved with a dance of otherworldly grace. Each step echoed the heritage of Toothertin's elusive lineage, a fusion of Khajiit agility and the charm that once defined the enigmatic count. The Argonian, fueled by the remnants of demonic energy and cybernetic prowess, loomed as a dark specter, their eyes gleaming with malevolence.
+
+The battle unfolded like a celestial ballet, a dance of cosmic forces that reverberated through the void. The Khajiit's movements were a cascade of stardust, a cosmic symphony in stark contrast to the clanking of cybernetic limbs and the eerie hum of the Argonian entity. Sparks flew as the two clashed, the mansion's ruins bearing witness to the clash of elemental forces.
+The universe, indifferent to the struggle below, watched as the Khajiit child confronted the embodiment of their lineage's darker side. The tin teeth, now a celestial catalyst, glowed with a mysterious energy, reflecting the cosmic equilibrium hanging in the balance.
+In the crescendo of the battle, the Khajiit, driven by a fusion of feline instinct and celestial heritage, managed to pierce through the Argonian's defenses. A celestial surge enveloped the battlefield, and as the darkness receded, the Argonian entity dissipated like dissipating shadows in the dawn.
+
+The Khajiit, holding the remnants of the cosmic clash, gazed upon the tin teeth that now pulsed with a subdued radiance. The enigma of Count Toothertin's lineage, entwined in a dance of good and evil, had found a momentary resolution in the cosmic clash. As the universe continued its indifferent rotation, the Khajiit embarked on a cosmic journey, the tin teeth echoing tales of a lineage that transcended the boundaries of time and space.
+
+"
+label_settings = SubResource("LabelSettings_bv5hn")
+autowrap_mode = 3
+
+[node name="Creditation" type="Label" parent="ScrollText"]
+layout_mode = 0
+offset_top = 1030.0
+offset_right = 1920.0
+offset_bottom = 2060.0
+text = "THANK YOU FOR PLAYING!
+
+Made by:
+
+Amanda Aguiar
+David Machado
+Diogo Jesus
+Diogo Rocha
+Moisés Moreira
+Tito Aguiar"
+label_settings = SubResource("LabelSettings_5hhfp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 2060.0
+color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7ttlr")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -13,6 +13,8 @@ var meter = 0
 var combo = 0
 var lives = 13
 
+@onready var score = get_parent().get_parent().score
+
 @export var meter_decrease = 10
 @export var combo_multiplier = 10
 
@@ -29,18 +31,23 @@ func _process(delta):
 				_reset()
 			else: if solution[str(i)] == current + 1:
 				_progress(i)
+				
+	$TextureRect/Label2.text = str(score)
 	
 	meter = clamp(meter - meter_decrease * delta, 0, 100)
 	emit_signal("meter_changed", meter)
-	$Label.text = str(int($Timer.time_left * (13 / $Timer.wait_time)))
 	if (current >= 13):
 		$Timer.stop()
 		emit_signal("win")
 		set_process(false)
+		get_parent().get_parent().score = score
 		
 	if Input.is_action_pressed("1") && (Input.is_action_pressed("3") &&
 	Input.is_action_pressed("play")):
 		$Timer.stop()
+		$TextureRect/Label.text = "Cheat"
+	else:
+		$TextureRect/Label.text = str(int($Timer.time_left * (13 / $Timer.wait_time)))
 
 func _physics_process(delta):
 	pass
@@ -54,7 +61,7 @@ func _reset():
 	current = 0
 	combo = 0
 	lives -= 1
-	$Lives.text = str(lives)
+	$TextureRect/Lives.text = str(lives)
 	emit_signal("reset")
 	
 	if (lives <= 0):
@@ -65,6 +72,8 @@ func _progress(value_pressed):
 	current += 1
 	combo += 1
 	meter += 0.5 * combo * combo_multiplier
+	
+	score = int(score + 100 * (meter / 100))
 
 func _init_Solution():
 	var values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -75,3 +84,7 @@ func _init_Solution():
 		values.remove_at(index)
 		
 	emit_signal("start", solution)
+
+
+func _on_button_pressed():
+	pass # Replace with function body.

@@ -1,34 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp4jbk4quxcti"]
+[gd_scene load_steps=6 format=3 uid="uid://dp4jbk4quxcti"]
 
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ycn58"]
-font_size = 100
+[ext_resource type="Texture2D" uid="uid://c042eecntuocr" path="res://art/imagens finais/updateUI.png" id="2_2bo3m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t0dul"]
-font_size = 100
+font_size = 190
+
+[sub_resource type="LabelSettings" id="LabelSettings_ycn58"]
+font_size = 190
+
+[sub_resource type="LabelSettings" id="LabelSettings_qy655"]
+font_size = 190
 
 [node name="Minigame" type="Node"]
 script = ExtResource("1")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 26.0
 
-[node name="Label" type="Label" parent="."]
-offset_left = 2.00024
-offset_top = 2.00012
-offset_right = 32.0002
-offset_bottom = 16.0001
-text = "12:00"
-label_settings = SubResource("LabelSettings_ycn58")
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2bo3m")
 
-[node name="Lives" type="Label" parent="."]
-offset_left = 1704.0
-offset_top = 2.0
-offset_right = 1916.0
-offset_bottom = 184.0
+[node name="Lives" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 708.0
+offset_right = 1588.0
+offset_bottom = 959.0
 text = "13"
 label_settings = SubResource("LabelSettings_t0dul")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 413.0
+offset_right = 1585.0
+offset_bottom = 665.0
+text = "12:00"
+label_settings = SubResource("LabelSettings_ycn58")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 124.0
+offset_right = 1575.0
+offset_bottom = 364.0
+text = "0"
+label_settings = SubResource("LabelSettings_qy655")
 horizontal_alignment = 1
 vertical_alignment = 1
 

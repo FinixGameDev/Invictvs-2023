@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddc108so3207v"
 path.s3tc="res://.godot/imported/panel_template.jpg-5935a63a17690693bc1ddb61fe0eba0d.s3tc.ctex"
+path.etc2="res://.godot/imported/panel_template.jpg-5935a63a17690693bc1ddb61fe0eba0d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/panel_template.jpg"
-dest_files=["res://.godot/imported/panel_template.jpg-5935a63a17690693bc1ddb61fe0eba0d.s3tc.ctex"]
+dest_files=["res://.godot/imported/panel_template.jpg-5935a63a17690693bc1ddb61fe0eba0d.s3tc.ctex", "res://.godot/imported/panel_template.jpg-5935a63a17690693bc1ddb61fe0eba0d.etc2.ctex"]
 
 [params]
 

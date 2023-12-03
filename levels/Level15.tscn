@@ -1,14 +1,15 @@
-[gd_scene load_steps=61 format=3 uid="uid://cb0nqdm4fmato"]
+[gd_scene load_steps=70 format=3 uid="uid://cb0nqdm4fmato"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_cyumm"]
 [ext_resource type="AudioStream" uid="uid://oejt0fffusc7" path="res://art/ost mp3/10intro.mp3" id="2_l3dm6"]
 [ext_resource type="AudioStream" uid="uid://nbs5300kkplg" path="res://art/ost mp3/10loop.mp3" id="3_7ha70"]
 [ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="4_gerjy"]
-[ext_resource type="Texture2D" uid="uid://c826misg60ysj" path="res://art/imagens finais/1-fundo.png" id="5_1h85h"]
+[ext_resource type="VideoStream" path="res://art/fundos ogg/15-fundo_prob3.ogv" id="5_vtqvw"]
 [ext_resource type="Texture2D" uid="uid://b5bo6vgkqan3" path="res://art/imagens finais/15-senhora1.png" id="6_hms6e"]
 [ext_resource type="Texture2D" uid="uid://dedn80gffs5j0" path="res://art/imagens finais/10-senhora2.png" id="6_jf7oa"]
 [ext_resource type="Texture2D" uid="uid://ct0y5vktmi546" path="res://art/imagens finais/10-mao1.png" id="7_3frd2"]
 [ext_resource type="Texture2D" uid="uid://bx2cvh1skxke6" path="res://art/imagens finais/15-maos1.png" id="7_g04od"]
+[ext_resource type="AudioStream" uid="uid://bjskr4p4vplrl" path="res://art/sound fx/15 loop.mp3" id="7_wyeco"]
 [ext_resource type="Script" path="res://scripts/hand_sway.gd" id="8_rxxjs"]
 [ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="9_qqpoq"]
 [ext_resource type="Texture2D" uid="uid://g0iwiv8ofm5r" path="res://art/imagens finais/10-mao2.png" id="10_0jsr0"]
@@ -50,6 +51,13 @@
 [ext_resource type="Texture2D" uid="uid://d2trltrpp3t05" path="res://art/imagens finais/10-senhora1.png" id="46_2yx7h"]
 [ext_resource type="Texture2D" uid="uid://b61ahgj5waqwe" path="res://art/imagens finais/15-maos2.png" id="49_17ica"]
 [ext_resource type="Texture2D" uid="uid://7nk6n2y8228y" path="res://art/imagens finais/15-senhora2.png" id="50_qo85u"]
+[ext_resource type="AudioStream" uid="uid://b6eyr148ypgy6" path="res://art/sound fx/15.mp3" id="52_gaxeq"]
+[ext_resource type="AudioStream" uid="uid://uswv4rlesl3h" path="res://art/snakes/15.wav" id="53_wh7t2"]
+[ext_resource type="AudioStream" uid="uid://b0bd4cfy2udyh" path="res://art/snakes/15_1.wav" id="54_kvtxm"]
+[ext_resource type="AudioStream" uid="uid://dyugbonlsahww" path="res://art/snakes/15_2.wav" id="55_b6d4s"]
+[ext_resource type="AudioStream" uid="uid://cllgi75bjng2h" path="res://art/snakes/15_3.wav" id="56_qyvxv"]
+[ext_resource type="AudioStream" uid="uid://c3mbkyb52p401" path="res://art/snakes/15_4.wav" id="57_mhruo"]
+[ext_resource type="AudioStream" uid="uid://dord8p6iagumn" path="res://art/snakes/15_5.wav" id="58_1l7st"]
 
 [sub_resource type="Animation" id="Animation_xc4sh"]
 resource_name = "10-mao"
@@ -65,6 +73,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("7_3frd2"), ExtResource("10_0jsr0"), ExtResource("7_3frd2")]
+}
+
+[sub_resource type="Animation" id="Animation_wd0ld"]
+resource_name = "15-mao"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("49_17ica"), ExtResource("7_g04od"), ExtResource("49_17ica")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_iyan7"]
@@ -163,25 +199,10 @@ tracks/0/keys = {
 "values": [ExtResource("46_2yx7h"), ExtResource("6_jf7oa"), ExtResource("46_2yx7h"), ExtResource("6_jf7oa"), ExtResource("46_2yx7h"), ExtResource("6_jf7oa")]
 }
 
-[sub_resource type="Animation" id="Animation_wd0ld"]
-resource_name = "15-mao"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_g04od"), ExtResource("49_17ica"), ExtResource("7_g04od")]
-}
-
 [sub_resource type="Animation" id="Animation_6eghn"]
 resource_name = "senhora 2"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -209,7 +230,23 @@ _data = {
 "senhora 2": SubResource("Animation_6eghn")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mejpw"]
+streams_count = 6
+stream_0/stream = ExtResource("53_wh7t2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("54_kvtxm")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("55_b6d4s")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("56_qyvxv")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("57_mhruo")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("58_1l7st")
+stream_5/weight = 1.0
+
 [node name="Level 15" type="Node2D"]
+position = Vector2(2, 1100)
 script = ExtResource("1_cyumm")
 handanim = "15-mao"
 
@@ -221,21 +258,31 @@ autoplay = true
 stream = ExtResource("3_7ha70")
 script = ExtResource("4_gerjy")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-texture = ExtResource("5_1h85h")
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_vtqvw")
+volume_db = -80.0
+autoplay = true
 
 [node name="Senhora" type="Sprite2D" parent="."]
 position = Vector2(961, 530)
-texture = ExtResource("6_hms6e")
+texture = ExtResource("50_qo85u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Senhora"]
+position = Vector2(-961, -530)
+stream = ExtResource("7_wyeco")
+volume_db = -0.445
 
 [node name="Hand" type="Sprite2D" parent="."]
 position = Vector2(967, 535)
 scale = Vector2(1.10104, 1.20741)
-texture = ExtResource("7_g04od")
+texture = ExtResource("49_17ica")
 script = ExtResource("8_rxxjs")
+sway = 200
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
+autoplay = "senhora 2"
 libraries = {
 "": SubResource("AnimationLibrary_esp12")
 }
@@ -243,6 +290,15 @@ libraries = {
 [node name="Timer" type="Timer" parent="Hand"]
 wait_time = 0.3
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hand"]
+position = Vector2(-878.26, -443.097)
+scale = Vector2(0.908232, 0.828219)
+stream = ExtResource("52_gaxeq")
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_mejpw")
+autoplay = true
 
 [connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
 [connection signal="timeout" from="Hand/Timer" to="Hand" method="_on_timer_timeout"]

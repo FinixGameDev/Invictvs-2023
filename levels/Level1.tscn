@@ -1,23 +1,47 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbyeukugpnhe0"]
+[gd_scene load_steps=20 format=3 uid="uid://bbyeukugpnhe0"]
 
 [ext_resource type="AudioStream" uid="uid://cr2iw520ba1s6" path="res://art/ost mp3/01intro.mp3" id="1_ap0h2"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vgygr"]
 [ext_resource type="AudioStream" uid="uid://v7bi2e1ka7qd" path="res://art/ost mp3/01loop.mp3" id="2_6omag"]
 [ext_resource type="Script" path="res://art/ost mp3/LoopSound.gd" id="3_nlw62"]
+[ext_resource type="VideoStream" path="res://art/fundos ogg/1-fundo_apo8_prob3.ogv" id="5_3oq15"]
 [ext_resource type="Texture2D" uid="uid://dnuhqg0lqwltt" path="res://art/imagens finais/1-despertador.png" id="5_4nshm"]
-[ext_resource type="Texture2D" uid="uid://b86m23uhf121b" path="res://art/imagens finais/1-mao2.png" id="6_1p0ng"]
 [ext_resource type="Script" path="res://scripts/hand_sway.gd" id="7_oy6p4"]
+[ext_resource type="Texture2D" uid="uid://b86m23uhf121b" path="res://art/imagens finais/1-mao2.png" id="7_sunha"]
 [ext_resource type="Animation" uid="uid://bjpjp1db80fv5" path="res://art/animation/1-mao.res" id="8_rxv0l"]
+[ext_resource type="AudioStream" uid="uid://dtlcsesdq6hi4" path="res://art/sound fx/1.mp3" id="10_wy8v0"]
+[ext_resource type="AudioStream" uid="uid://c0pduc4o2kew6" path="res://art/snakes/01.wav" id="11_8w3ug"]
+[ext_resource type="AudioStream" uid="uid://dgephdw20vp3k" path="res://art/snakes/01_1.wav" id="12_d2ate"]
+[ext_resource type="AudioStream" uid="uid://dxbiac35gdtth" path="res://art/snakes/01_2.wav" id="13_6aryf"]
+[ext_resource type="AudioStream" uid="uid://cg6uo7kiu2jxm" path="res://art/snakes/01_3.wav" id="14_53r18"]
+[ext_resource type="AudioStream" uid="uid://qednotk0f03c" path="res://art/snakes/01_4.wav" id="15_f28al"]
+[ext_resource type="AudioStream" uid="uid://brv24a8h3m3c4" path="res://art/snakes/01_5.wav" id="16_r7dah"]
+[ext_resource type="AudioStream" uid="uid://cg60nsulv043v" path="res://art/snakes/01_6.wav" id="17_ukw3e"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esp12"]
 _data = {
 "1-mao": ExtResource("8_rxv0l")
 }
 
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_pqpw0"]
-file = "1-fundoHD.ogg"
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sn4me"]
+streams_count = 7
+stream_0/stream = ExtResource("11_8w3ug")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("12_d2ate")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("13_6aryf")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_53r18")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_f28al")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("16_r7dah")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("17_ukw3e")
+stream_6/weight = 1.0
 
 [node name="Level 1" type="Node2D"]
+position = Vector2(0, 1080)
 script = ExtResource("1_vgygr")
 handanim = "1-mao"
 
@@ -29,13 +53,20 @@ autoplay = true
 stream = ExtResource("2_6omag")
 script = ExtResource("3_nlw62")
 
+[node name="Background" type="VideoStreamPlayer" parent="."]
+offset_right = 1926.0
+offset_bottom = 1088.0
+stream = ExtResource("5_3oq15")
+autoplay = true
+expand = true
+
 [node name="Despertador" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("5_4nshm")
 
 [node name="Hand" type="Sprite2D" parent="."]
 position = Vector2(1624, 649)
-texture = ExtResource("6_1p0ng")
+texture = ExtResource("7_sunha")
 script = ExtResource("7_oy6p4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hand"]
@@ -47,10 +78,11 @@ libraries = {
 wait_time = 0.3
 autostart = true
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 1926.0
-offset_bottom = 1088.0
-stream = SubResource("VideoStreamTheora_pqpw0")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Hand"]
+stream = ExtResource("10_wy8v0")
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_sn4me")
 autoplay = true
 
 [connection signal="finished" from="IntroSound" to="LoopSound" method="_on_intro_sound_finished"]
